@@ -2,23 +2,31 @@ namespace Exercicio;
 
 public class Produto
 {
-    public Produto(string nome, decimal valor)
+    public string Nome { get; private set; }
+    public decimal Preco { get; private set; }
+    protected IPromocao _promocao;
+
+    public Produto(string nome, decimal preco, IPromocao promocao)
     {
         Nome = nome;
-        Valor = valor;
+        Preco = preco;
+        _promocao = promocao;
     }
-
-    public string Nome { get; private set; }
-    public decimal Valor { get; private set; }
 
     public void AlterarNome(string nome)
     {
         Nome = nome;
     }
 
-    public void AlterarValor(decimal valor)
+    public void AlterarPreco(decimal preco)
     {
-        Valor = valor;
+        Preco = preco;
     }
+
+    public decimal DescontoPromocao()
+        => _promocao.Desconto();
+
+    public decimal PrecoVenda()
+        => Preco - (Preco * DescontoPromocao());
 
 }
