@@ -1,6 +1,9 @@
 namespace Exercicio;
 
-public abstract class CalcularImposto
+public class CalcularImposto
 {
-    public abstract decimal Calcular(decimal valor, decimal deducao);
+    public decimal Calcular(ICalculaImpostoPais calculaImpostoPais)
+    {
+        return calculaImpostoPais.CalcularValorImposto();
+    }
 }

@@ -1,6 +1,11 @@
 ﻿using Exercicio;
 
-CalcularImposto calcularImposto = new CalcularImpostoBrasil();
+ICalculaImpostoPais calculo = new CalcularImpostoBrasil();
+calculo.TotolRenda = 1000;
+calculo.TotolDeducao = 100;
 
-Console.WriteLine(calcularImposto.Calcular(1000, 100));
+CalcularImposto calcularImposto = new CalcularImposto();
+var valorTotalImposto = calcularImposto.Calcular(calculo);
+
+Console.WriteLine($"Brasil R$ {valorTotalImposto}");
 

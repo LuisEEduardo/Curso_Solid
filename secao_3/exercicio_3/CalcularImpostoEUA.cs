@@ -1,6 +1,6 @@
 namespace Exercicio;
 
-public class CalcularImpostoBrasil : ICalculaImpostoPais
+public class CalcularImpostoEUA : ICalculaImpostoPais
 {
     public decimal TotolRenda { get; set; }
     public decimal TotolDeducao { get; set; }
@@ -8,6 +8,6 @@ public class CalcularImpostoBrasil : ICalculaImpostoPais
     public decimal CalcularValorImposto()
     {
         decimal valorBase = TotolRenda - TotolDeducao;
-        return valorBase * 0.20M;
+        return valorBase * 0.30M;
     }
 }
